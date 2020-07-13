@@ -1,0 +1,15 @@
+{
+  "name": "test-proj",
+  "version": "1.0.0",
+  "description": "simple post-call endpoint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ararat Asatryan",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.713.0",
+    "serverless-offline": "^6.4.0"
+  }
+}
