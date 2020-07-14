@@ -10,13 +10,18 @@
   "author": "Ararat Asatryan",
   "license": "ISC",
   "dependencies": {
+    "aws-cli": "0.0.2",
     "aws-sdk": "^2.713.0",
     "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "dynamodb": "^1.2.1",
     "express": "^4.17.1",
     "nodemon": "^2.0.4",
     "serverless": "^1.74.1",
     "serverless-dynamodb-local": "^0.2.10",
     "serverless-http": "^2.5.0",
-    "serverless-offline": "^6.4.0"
+    "serverless-offline": "^6.4.0",
+    "serverless-offline-direct-lambda": "0.0.1",
+    "uuid": "^8.2.0"
   }
 }

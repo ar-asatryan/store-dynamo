@@ -1,7 +1,25 @@
 service: my-express-application
 
+#custom:
+#  tableName: 'users-table-${self:provider.stage}'
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline-direct-lambda
+  - serverless-offline
+
 custom:
   tableName: 'users-table-${self:provider.stage}'
+  dynamodb:
+    start:
+      migrate: true
+
+# custom:
+#   serverless-offline:
+#     httpsProtocol: "dev-certs"
+#     httpPort: 4000
+#     stageVariables:
+#       foo: "bar"
 
 provider:
   name: aws
@@ -19,8 +37,8 @@ provider:
         - dynamodb:DeleteItem
       Resource:
         - { "Fn::GetAtt": ["UsersDynamoDBTable", "Arn" ] }
-  environment:
-    USERS_TABLE: ${self:custom.tableName}
+environment:
+  USERS_TABLE: ${self:custom.tableName}
 
 functions:
   app:
@@ -28,6 +46,22 @@ functions:
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
+  getUser:
+    handler: index.handler
+    events:
+      - http: 'GET /users/{proxy+}'
+  createUser:
+    handler: index.handler
+    events:
+      - http: 'POST /users'
+
+# functions:
+#   load:
+#     handler: handler.main
+#     events:
+#       - http:
+#            path: /load
+#            method: POST
 
 resources:
   Resources:
@@ -46,3 +80,4 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: ${self:custom.tableName}
+
