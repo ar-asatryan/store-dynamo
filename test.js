@@ -19,7 +19,7 @@ exports.handle = function(err, data, cb) {
         if (err){
             cb(err,null);
         } else {
-            cb(data);
+            cb(null, data);
         }
     });
 
