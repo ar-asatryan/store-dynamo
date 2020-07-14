@@ -1,0 +1,39 @@
+serverless config credentials --provider aws --key AKIA3CRMZHKPQZO4BX45 --secret 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
+
+serverless
+1. Post call endpoint, body {firstName, lastName, username}
+2. Save user data to dynamodb with unique id which is uuid
+3. Calculate and store stats in dynamodb table containt int totalUsersCount info
+
+> serverless plugins
+> serverless offline dynamodb
+> serverless-dynamodb-local
+
+
+
+AKIA3CRMZHKPQZO4BX45
+qUuUNrXrwmjEbMcDTrGVY0p1GczGMgdbll5ApZKU
+
+Europe (Stockholm)	eu-north-1	config.eu-north-1.amazonaws.com	HTTPS
+
+  ANY - https://368j9bsa7k.execute-api.eu-north-1.amazonaws.com/dev
+  ANY - https://368j9bsa7k.execute-api.eu-north-1.amazonaws.com/dev/{proxy+}
+  
+  endpoints:
+  ANY - https://368j9bsa7k.execute-api.eu-north-1.amazonaws.com/dev
+  ANY - https://368j9bsa7k.execute-api.eu-north-1.amazonaws.com/dev/{proxy+}
+
+export BASE_DOMAIN=https://368j9bsa7k.execute-api.eu-north-1.amazonaws.com/dev
+curl -H "Content-Type: application/json" -X POST ${BASE_DOMAIN}/users -d '{"userId": "aroray", "name": "Ararat Asatryan"}'
+
+
+npm install --save serverless-dynamodb-local@0.2.10
+
+
+ask new --template --url https//:skilltemplates.com/templates.json
+
+
+
+
+
+
